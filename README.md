@@ -1,7 +1,7 @@
 # NPCLibrary
 A simple NPC library for Spigot 1.8 that uses ProtocolLib.
 
-#Usage
+# Usage
 Here's how to create a simple NPC:
 ```java
 NPC npc = NPCLibrary.createNPC();
