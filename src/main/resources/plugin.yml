@@ -1,0 +1,5 @@
+name: NPCLibrary
+version: 1.0
+author: VytskaLT
+depend: [ProtocolLib]
+main: net.VytskaLT.NPCLibrary.NPCLibrary
