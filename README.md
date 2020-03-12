@@ -9,6 +9,7 @@ npc.setName("NPC");
 npc.setUuid(UUID.randomUUID());
 npc.setEntityId(new Random().nextInt(1000)); // This is not the best way to do this
 
+npc.setTextures(new NPCTextures(value, signature)); // This sets the NPCs skin
 npc.setSneaking(true); // This makes the NPC sneak
 npc.setLocation(location); // This sets the NPCs location
 npc.addPlayer(player); // This adds a player that should see the NPC
