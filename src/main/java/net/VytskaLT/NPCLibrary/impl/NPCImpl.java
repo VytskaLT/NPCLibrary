@@ -196,16 +196,22 @@ public class NPCImpl implements NPC {
 
     public void setUuid(UUID uuid) {
         if(spawned) {
-            throw new IllegalStateException("Cannot set uuid when NPC is spawned");
+            setSpawned(false);
+            this.uuid = uuid;
+            setSpawned(true);
+        } else {
+            this.uuid = uuid;
         }
-        this.uuid = uuid;
     }
 
     public void setEntityId(int entityId) {
         if(spawned) {
-            throw new IllegalStateException("Cannot set entity id when NPC is spawned");
+            setSpawned(false);
+            this.entityId = entityId;
+            setSpawned(true);
+        } else {
+            this.entityId = entityId;
         }
-        this.entityId = entityId;
     }
 
     public void setLocation(Location location) {
