@@ -23,7 +23,7 @@ public class NPCLibrary extends JavaPlugin {
     public static final int NPC_RADIUS = 64;
 
     private static NPCLibrary instance;
-    private static List<NPCImpl> npcList = new ArrayList<>();
+    private static List<NPCImpl> npcs = new ArrayList<>();
     public ProtocolManager manager;
 
     @Override
@@ -47,7 +47,7 @@ public class NPCLibrary extends JavaPlugin {
                     return;
                 }
                 NPCImpl npc = null;
-                for (NPCImpl i : npcList) {
+                for (NPCImpl i : npcs) {
                     if(i.entityId == target) {
                         npc = i;
                         break;
@@ -73,6 +73,6 @@ public class NPCLibrary extends JavaPlugin {
     }
 
     public static List<NPCImpl> getNPCs() {
-        return new ArrayList<>(npcList);
+        return new ArrayList<>(npcs);
     }
 }
