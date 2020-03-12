@@ -37,7 +37,6 @@ public class JoinQuitListener implements Listener {
                 npc.players.remove(p);
                 npc.rangePlayers.remove(p);
                 npc.offlinePlayers.add(p.getUniqueId());
-                System.out.println();
             }
         }
     }

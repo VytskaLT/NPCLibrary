@@ -56,10 +56,10 @@ public class NPCImpl implements NPC {
     public List<NPCEventHandler> eventHandlers;
 
     public NPCImpl(NPCLibrary plugin) {
-        NPCLibrary.addNPC(this);
+        NPCLibrary.getNPCs().add(this);
 
         this.plugin = plugin;
-        this.manager = NPCLibrary.getManager();
+        this.manager = NPCLibrary.getInstance().manager;
         this.skinLayers = new SkinLayerHandler();
         this.state = new NPCStateHandler();
         this.mode = NPCMode.NORMAL;

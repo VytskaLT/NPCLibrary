@@ -11,6 +11,7 @@ import com.comphenix.protocol.wrappers.EnumWrappers;
 import net.VytskaLT.NPCLibrary.impl.NPCImpl;
 import net.VytskaLT.NPCLibrary.listener.JoinQuitListener;
 import net.VytskaLT.NPCLibrary.listener.MoveListener;
+import net.VytskaLT.NPCLibrary.npc.NPC;
 import net.VytskaLT.NPCLibrary.npc.NPCEventHandler;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -21,11 +22,13 @@ public class NPCLibrary extends JavaPlugin {
 
     public static final int NPC_RADIUS = 64;
 
+    private static NPCLibrary instance;
     private static List<NPCImpl> npcList = new ArrayList<>();
-    private static ProtocolManager manager;
+    public ProtocolManager manager;
 
     @Override
     public void onEnable() {
+        instance = this;
         manager = ProtocolLibrary.getProtocolManager();
 
         getServer().getPluginManager().registerEvents(new MoveListener(), this);
@@ -61,12 +64,12 @@ public class NPCLibrary extends JavaPlugin {
         });
     }
 
-    public static ProtocolManager getManager() {
-        return manager;
+    public static NPCLibrary getInstance() {
+        return instance;
     }
 
-    public static void addNPC(NPCImpl npc) {
-        npcList.add(npc);
+    public static NPC createNPC() {
+        return new NPCImpl(instance);
     }
 
     public static List<NPCImpl> getNPCs() {
