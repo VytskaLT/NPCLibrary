@@ -14,6 +14,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.lang.reflect.InvocationTargetException;
+import java.math.BigInteger;
 import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
@@ -43,8 +44,8 @@ public class PacketUtil {
         try {
             for(Player p : players) {
                 npc.manager.sendServerPacket(p, spawn);
-                npc.inventory.update();
                 npc.manager.sendServerPacket(p, rotation);
+                npc.inventory.update();
             }
         } catch(InvocationTargetException e) {
             npc.plugin.getLogger().log(Level.WARNING, "Could not send npc packets", e);
@@ -172,6 +173,9 @@ public class PacketUtil {
         WrappedDataWatcher watcher = new WrappedDataWatcher();
 
         watcher.setObject(0, (byte) npc.state.getId());
+        if(npc.effectParticles != null) {
+            watcher.setObject(7, new BigInteger(npc.effectParticles, 16).intValue());
+        }
         watcher.setObject(10, npc.skinLayers.getFlags()); // Skin flags
 
         return watcher;
