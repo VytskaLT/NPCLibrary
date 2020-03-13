@@ -6,7 +6,7 @@ import lombok.Getter;
 public class NPCTextures {
 
     @Getter
-    private String value, signature;
+    private final String value, signature;
 
     public NPCTextures(String value, String signature) {
         this.value = value;

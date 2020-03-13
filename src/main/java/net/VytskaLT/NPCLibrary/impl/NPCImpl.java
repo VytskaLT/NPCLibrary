@@ -35,9 +35,9 @@ public class NPCImpl implements NPC {
     public Location location;
     @Getter
     public NPCTextures textures;
-    public SkinLayerHandler skinLayers;
-    public NPCStateHandler state;
-    public NPCInventory inventory;
+    public final SkinLayerHandler skinLayers;
+    public final NPCStateHandler state;
+    public final NPCInventory inventory;
     @Getter
     public NPCMode mode;
     @Getter

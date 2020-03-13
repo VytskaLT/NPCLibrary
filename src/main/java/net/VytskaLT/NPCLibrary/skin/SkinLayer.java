@@ -9,7 +9,7 @@ public enum SkinLayer {
     RIGHT_PANTS(5),
     RIGHT_SLEEVE(3);
 
-    int flag;
+    final int flag;
 
     SkinLayer(int offset) {
         this.flag = 1 << offset;

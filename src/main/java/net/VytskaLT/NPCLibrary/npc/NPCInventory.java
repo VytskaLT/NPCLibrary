@@ -12,8 +12,8 @@ public class NPCInventory {
 
     private static final ItemStack air = new ItemStack(Material.AIR);
 
-    private NPCImpl npc;
-    private Map<EquipmentSlot, ItemStack> slots = new HashMap<>();
+    private final NPCImpl npc;
+    private final Map<EquipmentSlot, ItemStack> slots = new HashMap<>();
 
     public NPCInventory(NPCImpl npc) {
         this.npc = npc;
@@ -46,7 +46,7 @@ public class NPCInventory {
     public enum EquipmentSlot {
         HAND(0), BOOTS(1), LEGGINGS(2), CHESTPLATE(3), HELMET(4);
 
-        int id;
+        final int id;
 
         EquipmentSlot(int id) {
             this.id = id;
