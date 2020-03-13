@@ -11,6 +11,7 @@ npc.setEntityId(new Random().nextInt(1000)); // This is not the best way to do t
 
 npc.setTextures(new NPCTextures(value, signature)); // This sets the NPCs skin
 npc.setSneaking(true); // This makes the NPC sneak
+npc.setEquipmentSlot(NPCInventory.EquipmentSlot.CHESTPLATE, new ItemStack(Material.DIAMOND_CHESTPLATE)); // Makes the NPC wear a diamond chestplate
 npc.setLocation(location); // This sets the NPCs location
 npc.addPlayer(player); // This adds a player that should see the NPC
 npc.addEventHandler(new NPCEventHandler() { // This adds a event handler for the NPC
