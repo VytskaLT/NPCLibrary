@@ -1,22 +1,16 @@
 package net.VytskaLT.NPCLibrary.skin;
 
 import com.comphenix.protocol.wrappers.WrappedSignedProperty;
+import lombok.Getter;
 
 public class NPCTextures {
 
+    @Getter
     private String value, signature;
 
     public NPCTextures(String value, String signature) {
         this.value = value;
         this.signature = signature;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public String getSignature() {
-        return signature;
     }
 
     public WrappedSignedProperty toProperty() {
