@@ -133,6 +133,12 @@ public class NPCImpl implements NPC {
         }
     }
 
+    public void playAnimation(AnimationType type) {
+        if(spawned) {
+            PacketUtil.animation(this, type, rangePlayers);
+        }
+    }
+
     public boolean isSkinLayerVisible(SkinLayer layer) {
         return skinLayers.isVisible(layer);
     }

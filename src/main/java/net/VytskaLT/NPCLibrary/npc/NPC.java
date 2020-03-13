@@ -54,4 +54,5 @@ public interface NPC {
     void setOnFire(boolean fire);
 
     void remove();
+    void playAnimation(AnimationType type);
 }

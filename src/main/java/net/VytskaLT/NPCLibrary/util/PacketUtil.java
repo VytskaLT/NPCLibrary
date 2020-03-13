@@ -6,6 +6,7 @@ import com.comphenix.protocol.wrappers.EnumWrappers;
 import com.comphenix.protocol.wrappers.PlayerInfoData;
 import com.comphenix.protocol.wrappers.WrappedDataWatcher;
 import com.comphenix.protocol.wrappers.WrappedGameProfile;
+import net.VytskaLT.NPCLibrary.npc.AnimationType;
 import net.VytskaLT.NPCLibrary.npc.impl.NPCImpl;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -150,6 +151,20 @@ public class PacketUtil {
             }
         } catch(InvocationTargetException e) {
             npc.plugin.getLogger().log(Level.WARNING, "Could not send equipment packet", e);
+        }
+    }
+
+    public static void animation(NPCImpl npc, AnimationType type, List<Player> players) {
+        PacketContainer animation = npc.manager.createPacket(PacketType.Play.Server.ANIMATION);
+        animation.getIntegers().write(0, npc.entityId);
+        animation.getIntegers().write(1, type.id);
+
+        try {
+            for(Player p : players) {
+                npc.manager.sendServerPacket(p, animation);
+            }
+        } catch(InvocationTargetException e) {
+            npc.plugin.getLogger().log(Level.WARNING, "Could not send animation packet", e);
         }
     }
 
