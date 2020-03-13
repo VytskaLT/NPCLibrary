@@ -27,10 +27,13 @@ public class NPCLibrary extends JavaPlugin {
     public ProtocolManager manager;
 
     @Override
-    public void onEnable() {
+    public void onLoad() {
         instance = this;
         manager = ProtocolLibrary.getProtocolManager();
+    }
 
+    @Override
+    public void onEnable() {
         getServer().getPluginManager().registerEvents(new MoveListener(), this);
         getServer().getPluginManager().registerEvents(new JoinQuitListener(), this);
 
