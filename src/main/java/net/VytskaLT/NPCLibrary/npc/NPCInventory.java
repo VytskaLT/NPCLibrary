@@ -44,7 +44,7 @@ public class NPCInventory {
     }
 
     public enum EquipmentSlot {
-        HELD_ITEM(0), BOOTS(1), LEGGINGS(2), CHESTPLATE(3), HELMET(4);
+        HAND(0), BOOTS(1), LEGGINGS(2), CHESTPLATE(3), HELMET(4);
 
         int id;
 
