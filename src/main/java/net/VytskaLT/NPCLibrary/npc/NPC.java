@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 public interface NPC {
+
     String getName();
     void setName(String name);
 
@@ -51,4 +52,6 @@ public interface NPC {
     void setSneaking(boolean sneaking);
     boolean isOnFire();
     void setOnFire(boolean fire);
+
+    void remove();
 }
