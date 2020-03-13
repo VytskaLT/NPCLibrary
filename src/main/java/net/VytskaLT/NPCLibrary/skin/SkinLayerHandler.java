@@ -48,7 +48,7 @@ public class SkinLayerHandler {
         int flags = 0xFF;
         for(SkinLayer layer : SkinLayer.values()) {
             if (!isVisible(layer)) {
-                flags &= ~layer.getFlag();
+                flags &= ~layer.flag;
             }
         }
         return (byte) flags;
