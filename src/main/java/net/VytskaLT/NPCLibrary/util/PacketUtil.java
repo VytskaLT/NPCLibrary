@@ -173,8 +173,8 @@ public class PacketUtil {
         WrappedDataWatcher watcher = new WrappedDataWatcher();
 
         watcher.setObject(0, (byte) npc.state.getId());
-        if(npc.effectParticles != null) {
-            watcher.setObject(7, new BigInteger(npc.effectParticles, 16).intValue());
+        if(npc.particleEffectColor != null) {
+            watcher.setObject(7, new BigInteger(npc.particleEffectColor, 16).intValue());
         }
         watcher.setObject(10, npc.skinLayers.getFlags()); // Skin flags
 
