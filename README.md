@@ -14,7 +14,7 @@ npc.setSneaking(true); // This makes the NPC sneak
 npc.setEquipmentSlot(NPCInventory.EquipmentSlot.CHESTPLATE, new ItemStack(Material.DIAMOND_CHESTPLATE)); // Makes the NPC wear a diamond chestplate
 npc.setLocation(location); // This sets the NPCs location
 npc.addPlayer(player); // This adds a player that should see the NPC
-npc.addEventHandler(new NPCEventHandler() { // This adds a event handler for the NPC
+npc.addEventHandler(new NPCEventHandler() { // This adds an event handler for the NPC
     // This is called when the NPC is interacted with
     @Override
     public void onInteract(NPC npc, Player player, InteractType type) {
