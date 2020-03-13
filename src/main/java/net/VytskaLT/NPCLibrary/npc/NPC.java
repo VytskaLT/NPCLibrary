@@ -32,8 +32,8 @@ public interface NPC {
     NPCMode getMode();
     void setMode(NPCMode mode);
 
-    String getEffectParticles();
-    void setEffectParticles(String hex);
+    String getParticleEffectColor();
+    void setParticleEffectColor(String hex);
 
     boolean isSpawned();
     void setSpawned(boolean spawned);

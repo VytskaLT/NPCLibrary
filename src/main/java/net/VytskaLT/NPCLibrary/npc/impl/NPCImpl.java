@@ -39,7 +39,7 @@ public class NPCImpl implements NPC {
     public final NPCStateHandler state;
     public final NPCInventory inventory;
     @Getter
-    public String effectParticles;
+    public String particleEffectColor;
     @Getter
     public NPCMode mode;
     @Getter
@@ -141,8 +141,8 @@ public class NPCImpl implements NPC {
         }
     }
 
-    public void setEffectParticles(String hex) {
-        effectParticles = hex;
+    public void setParticleEffectColor(String hex) {
+        particleEffectColor = hex;
         if(spawned) {
             PacketUtil.updateMetadata(this, rangePlayers);
         }
