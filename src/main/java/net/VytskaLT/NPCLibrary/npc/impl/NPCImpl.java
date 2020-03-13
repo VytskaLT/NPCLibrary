@@ -42,6 +42,7 @@ public class NPCImpl implements NPC {
     public NPCMode mode;
     @Getter
     public boolean spawned;
+    public boolean removed;
     public WrappedGameProfile profile;
     public PlayerInfoData infoData;
     @Getter
@@ -82,9 +83,19 @@ public class NPCImpl implements NPC {
     }
 
     public void refreshNPC(List<Player> players) {
-        PacketUtil.removeNPC(this, players);
-        PacketUtil.addNPC(this, players);
-        PacketUtil.showNPC(this, players);
+        if(spawned) {
+            PacketUtil.removeNPC(this, players);
+            PacketUtil.addNPC(this, players);
+            PacketUtil.showNPC(this, players);
+        }
+    }
+
+    public void remove() {
+        if(!removed) {
+            setSpawned(false);
+            NPCLibrary.getNPCs().remove(this);
+            removed = true;
+        }
     }
 
     public void checkRange(Player player) {
@@ -171,6 +182,9 @@ public class NPCImpl implements NPC {
     }
 
     public void setSpawned(boolean spawned) {
+        if(removed) {
+            throw new IllegalStateException("NPC is removed");
+        }
         if(spawned && !this.spawned) {
             for(Player player : players) {
                 if(DistanceUtil.isInRange(player, location)) {
