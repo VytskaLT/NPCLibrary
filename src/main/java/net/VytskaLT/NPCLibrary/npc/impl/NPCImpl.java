@@ -64,7 +64,6 @@ public class NPCImpl implements NPC {
         this.skinLayers = new SkinLayerHandler();
         this.state = new NPCStateHandler();
         this.inventory = new NPCInventory(this);
-        this.effectParticles = "FFFFFF";
         this.mode = NPCMode.NORMAL;
         this.players = new ArrayList<>();
         this.rangePlayers = new ArrayList<>();
