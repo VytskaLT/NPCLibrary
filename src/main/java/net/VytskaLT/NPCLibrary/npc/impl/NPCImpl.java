@@ -1,4 +1,4 @@
-package net.VytskaLT.NPCLibrary.impl;
+package net.VytskaLT.NPCLibrary.npc.impl;
 
 import com.comphenix.protocol.ProtocolManager;
 import com.comphenix.protocol.wrappers.PlayerInfoData;

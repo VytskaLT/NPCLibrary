@@ -8,11 +8,11 @@ import com.comphenix.protocol.events.PacketAdapter;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.events.PacketEvent;
 import com.comphenix.protocol.wrappers.EnumWrappers;
-import net.VytskaLT.NPCLibrary.impl.NPCImpl;
 import net.VytskaLT.NPCLibrary.listener.JoinQuitListener;
 import net.VytskaLT.NPCLibrary.listener.MoveListener;
 import net.VytskaLT.NPCLibrary.npc.NPC;
 import net.VytskaLT.NPCLibrary.npc.NPCEventHandler;
+import net.VytskaLT.NPCLibrary.npc.impl.NPCImpl;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;

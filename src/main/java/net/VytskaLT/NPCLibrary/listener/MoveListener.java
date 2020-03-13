@@ -1,7 +1,7 @@
 package net.VytskaLT.NPCLibrary.listener;
 
 import net.VytskaLT.NPCLibrary.NPCLibrary;
-import net.VytskaLT.NPCLibrary.impl.NPCImpl;
+import net.VytskaLT.NPCLibrary.npc.impl.NPCImpl;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

@@ -1,6 +1,6 @@
 package net.VytskaLT.NPCLibrary.npc;
 
-import net.VytskaLT.NPCLibrary.impl.NPCImpl;
+import net.VytskaLT.NPCLibrary.npc.impl.NPCImpl;
 import net.VytskaLT.NPCLibrary.util.PacketUtil;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
