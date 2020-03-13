@@ -9,6 +9,7 @@ import com.comphenix.protocol.wrappers.WrappedGameProfile;
 import net.VytskaLT.NPCLibrary.impl.NPCImpl;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.lang.reflect.InvocationTargetException;
@@ -41,6 +42,7 @@ public class PacketUtil {
         try {
             for(Player p : players) {
                 npc.manager.sendServerPacket(p, spawn);
+                npc.inventory.update();
                 npc.manager.sendServerPacket(p, rotation);
             }
         } catch(InvocationTargetException e) {
@@ -133,6 +135,21 @@ public class PacketUtil {
             }
         } catch(InvocationTargetException e) {
             npc.plugin.getLogger().log(Level.WARNING, "Could not send teleport packet", e);
+        }
+    }
+
+    public static void equip(NPCImpl npc, int slot, ItemStack item, List<Player> players) {
+        PacketContainer equip = npc.manager.createPacket(PacketType.Play.Server.ENTITY_EQUIPMENT);
+        equip.getIntegers().write(0, npc.entityId);
+        equip.getIntegers().write(1, slot);
+        equip.getItemModifier().write(0, item);
+
+        try {
+            for(Player p : players) {
+                npc.manager.sendServerPacket(p, equip);
+            }
+        } catch(InvocationTargetException e) {
+            npc.plugin.getLogger().log(Level.WARNING, "Could not send equipment packet", e);
         }
     }
 

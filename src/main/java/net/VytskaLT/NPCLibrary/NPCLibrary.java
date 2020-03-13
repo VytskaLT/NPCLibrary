@@ -73,6 +73,6 @@ public class NPCLibrary extends JavaPlugin {
     }
 
     public static List<NPCImpl> getNPCs() {
-        return new ArrayList<>(npcs);
+        return npcs;
     }
 }

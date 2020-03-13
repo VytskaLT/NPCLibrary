@@ -5,10 +5,7 @@ import com.comphenix.protocol.wrappers.PlayerInfoData;
 import com.comphenix.protocol.wrappers.WrappedGameProfile;
 import lombok.Getter;
 import net.VytskaLT.NPCLibrary.NPCLibrary;
-import net.VytskaLT.NPCLibrary.npc.NPC;
-import net.VytskaLT.NPCLibrary.npc.NPCEventHandler;
-import net.VytskaLT.NPCLibrary.npc.NPCMode;
-import net.VytskaLT.NPCLibrary.npc.NPCStateHandler;
+import net.VytskaLT.NPCLibrary.npc.*;
 import net.VytskaLT.NPCLibrary.skin.NPCTextures;
 import net.VytskaLT.NPCLibrary.skin.SkinLayer;
 import net.VytskaLT.NPCLibrary.skin.SkinLayerHandler;
@@ -16,6 +13,7 @@ import net.VytskaLT.NPCLibrary.util.DistanceUtil;
 import net.VytskaLT.NPCLibrary.util.PacketUtil;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -39,11 +37,11 @@ public class NPCImpl implements NPC {
     public NPCTextures textures;
     public SkinLayerHandler skinLayers;
     public NPCStateHandler state;
+    public NPCInventory inventory;
     @Getter
     public NPCMode mode;
     @Getter
     public boolean spawned;
-
     public WrappedGameProfile profile;
     public PlayerInfoData infoData;
     @Getter
@@ -62,6 +60,7 @@ public class NPCImpl implements NPC {
         this.manager = NPCLibrary.getInstance().manager;
         this.skinLayers = new SkinLayerHandler();
         this.state = new NPCStateHandler();
+        this.inventory = new NPCInventory(this);
         this.mode = NPCMode.NORMAL;
         this.players = new ArrayList<>();
         this.rangePlayers = new ArrayList<>();
@@ -132,6 +131,14 @@ public class NPCImpl implements NPC {
         if(spawned) {
             PacketUtil.updateMetadata(this, rangePlayers);
         }
+    }
+
+    public ItemStack getEquipmentSlot(NPCInventory.EquipmentSlot slot) {
+        return inventory.get(slot);
+    }
+
+    public void setEquipmentSlot(NPCInventory.EquipmentSlot slot, ItemStack item) {
+        inventory.set(slot, item);
     }
 
     public boolean isSneaking() {

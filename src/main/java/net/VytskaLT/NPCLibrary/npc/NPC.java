@@ -4,6 +4,7 @@ import net.VytskaLT.NPCLibrary.skin.NPCTextures;
 import net.VytskaLT.NPCLibrary.skin.SkinLayer;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 import java.util.UUID;
@@ -23,6 +24,9 @@ public interface NPC {
 
     NPCTextures getTextures();
     void setTextures(NPCTextures textures);
+
+    ItemStack getEquipmentSlot(NPCInventory.EquipmentSlot slot);
+    void setEquipmentSlot(NPCInventory.EquipmentSlot slot, ItemStack item);
 
     NPCMode getMode();
     void setMode(NPCMode mode);
