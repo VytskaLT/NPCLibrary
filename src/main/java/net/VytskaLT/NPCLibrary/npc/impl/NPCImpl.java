@@ -39,6 +39,8 @@ public class NPCImpl implements NPC {
     public final NPCStateHandler state;
     public final NPCInventory inventory;
     @Getter
+    public String effectParticles;
+    @Getter
     public NPCMode mode;
     @Getter
     public boolean spawned;
@@ -62,6 +64,7 @@ public class NPCImpl implements NPC {
         this.skinLayers = new SkinLayerHandler();
         this.state = new NPCStateHandler();
         this.inventory = new NPCInventory(this);
+        this.effectParticles = "FFFFFF";
         this.mode = NPCMode.NORMAL;
         this.players = new ArrayList<>();
         this.rangePlayers = new ArrayList<>();
@@ -136,6 +139,13 @@ public class NPCImpl implements NPC {
     public void playAnimation(AnimationType type) {
         if(spawned) {
             PacketUtil.animation(this, type, rangePlayers);
+        }
+    }
+
+    public void setEffectParticles(String hex) {
+        effectParticles = hex;
+        if(spawned) {
+            PacketUtil.updateMetadata(this, rangePlayers);
         }
     }
 
