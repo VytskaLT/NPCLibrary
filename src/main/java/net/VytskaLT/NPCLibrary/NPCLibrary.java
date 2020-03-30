@@ -13,6 +13,7 @@ import net.VytskaLT.NPCLibrary.listener.MoveListener;
 import net.VytskaLT.NPCLibrary.npc.NPC;
 import net.VytskaLT.NPCLibrary.npc.NPCEventHandler;
 import net.VytskaLT.NPCLibrary.npc.impl.NPCImpl;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
@@ -60,9 +61,12 @@ public class NPCLibrary extends JavaPlugin {
                     return;
                 }
                 event.setCancelled(true);
-                for (NPCEventHandler handler : npc.eventHandlers) {
-                    handler.onInteract(npc, event.getPlayer(), action == EnumWrappers.EntityUseAction.ATTACK ? NPCEventHandler.InteractType.LEFT_CLICK : NPCEventHandler.InteractType.RIGHT_CLICK);
-                }
+                NPCImpl finalNpc = npc;
+                Bukkit.getScheduler().runTask(NPCLibrary.this, () -> {
+                    for (NPCEventHandler handler : finalNpc.eventHandlers) {
+                        handler.onInteract(finalNpc, event.getPlayer(), action == EnumWrappers.EntityUseAction.ATTACK ? NPCEventHandler.InteractType.LEFT_CLICK : NPCEventHandler.InteractType.RIGHT_CLICK);
+                    }
+                });
             }
         });
     }
