@@ -20,7 +20,7 @@ public class MoveListener implements Listener {
         }
         Player player = e.getPlayer();
         for(NPCImpl npc : NPCLibrary.getNPCs()) {
-            if(to.getWorld() != npc.location.getWorld() || !npc.players.contains(player)) {
+            if(npc.location == null || to.getWorld() != npc.location.getWorld() || !npc.players.contains(player)) {
                 continue;
             }
             if(to.distance(npc.getLocation()) > NPCLibrary.NPC_RADIUS) {
