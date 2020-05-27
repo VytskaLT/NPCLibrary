@@ -14,7 +14,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.lang.reflect.InvocationTargetException;
-import java.math.BigInteger;
 import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
@@ -173,8 +172,8 @@ public class PacketUtil {
         WrappedDataWatcher watcher = new WrappedDataWatcher();
 
         watcher.setObject(0, (byte) npc.state.getId());
-        if(npc.particleEffectColor != null) {
-            watcher.setObject(7, new BigInteger(npc.particleEffectColor, 16).intValue());
+        if(npc.particleEffectColor != -1) {
+            watcher.setObject(7, npc.particleEffectColor);
         }
         watcher.setObject(10, npc.skinLayers.getFlags()); // Skin flags
 
