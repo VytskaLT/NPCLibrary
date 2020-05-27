@@ -20,13 +20,6 @@ public class NPCStateHandler {
     }
 
     public int getId() {
-        if(fire && sneak) {
-            return 3;
-        } else if(fire) {
-            return 1;
-        } else if(sneak) {
-            return 2;
-        }
-        return 0;
+        return fire && sneak ? 3 : sneak ? 2 : fire ? 1 : 0;
     }
 }
