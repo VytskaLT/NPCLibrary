@@ -6,9 +6,6 @@ public enum NPCMode {
     NORMAL, SPECTATOR;
 
     public EnumWrappers.NativeGameMode getNativeGameMode() {
-        if (this == NPCMode.SPECTATOR) {
-            return EnumWrappers.NativeGameMode.SPECTATOR;
-        }
-        return EnumWrappers.NativeGameMode.CREATIVE;
+        return this == NPCMode.SPECTATOR ? EnumWrappers.NativeGameMode.SPECTATOR : EnumWrappers.NativeGameMode.CREATIVE;
     }
 }
