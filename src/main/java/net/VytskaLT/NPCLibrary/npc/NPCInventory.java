@@ -1,5 +1,6 @@
 package net.VytskaLT.NPCLibrary.npc;
 
+import lombok.RequiredArgsConstructor;
 import net.VytskaLT.NPCLibrary.npc.impl.NPCImpl;
 import net.VytskaLT.NPCLibrary.util.PacketUtil;
 import org.bukkit.Material;
@@ -43,13 +44,10 @@ public class NPCInventory {
         });
     }
 
+    @RequiredArgsConstructor
     public enum EquipmentSlot {
         HAND(0), BOOTS(1), LEGGINGS(2), CHESTPLATE(3), HELMET(4);
 
         final int id;
-
-        EquipmentSlot(int id) {
-            this.id = id;
-        }
     }
 }
